@@ -2,13 +2,15 @@ import Banner from "./Banner";
 import FeatureProduct from "./FeatureProduct";
 import ScrollToTopOnMount from "../template/ScrollToTopOnMount";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import CreditCardWidget from "../components/CreditCardWidget/CreditCardWidget";
 import { Link } from "react-router-dom";
 
 function Landing() {
   return (
     <>
       <ScrollToTopOnMount />
-      <Banner />
+          <Banner />
+          <CreditCardWidget merchantId={"01234567890123456789"} merchantName={"SoNice"} totalPrice={"4"} />
       <div className="d-flex flex-column bg-white py-4">
         <p className="text-center px-5">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
