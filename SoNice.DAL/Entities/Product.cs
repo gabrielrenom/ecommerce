@@ -15,6 +15,7 @@ namespace SoNice.DAL.Entities
         public int CategoryId { get; set; }
         public int Rating { get; set; }
         public Category Category { get; set; }
-        public List<ProductImage> ProductImages { get; set; } 
+        public List<ProductImage> ProductImages { get; set; }
+        public bool IsNew { get; set; }
     }
 }

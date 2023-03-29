@@ -1,17 +1,25 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using SoNice.Domain.Services;
 
 namespace SoNice.Controllers
 {
-    public class ProductsController:ControllerBase
+    [ApiController]
+    [Route("[controller]")]
+    public class ProductShopController:ControllerBase
     {
-        public ProductsController()
-        {
+        private readonly IProductsService _productsService;
 
+        public ProductShopController(IProductsService productsService)
+        {
+            _productsService= productsService;
         }
 
+        [HttpGet]
         public async Task<IActionResult> GetProductsFrontPage()
         {
-            return Ok();
+            var result = await _productsService.GetAllProducts(isnew:true);
+
+            return Ok(result);
         }
     }
 }

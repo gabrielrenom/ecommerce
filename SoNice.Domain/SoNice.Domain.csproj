@@ -6,4 +6,8 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\SoNice.DAL\SoNice.DAL.csproj" />
+  </ItemGroup>
+
 </Project>

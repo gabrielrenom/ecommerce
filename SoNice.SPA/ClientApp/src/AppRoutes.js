@@ -2,7 +2,7 @@ import ApiAuthorzationRoutes from './components/api-authorization/ApiAuthorizati
 import { Counter } from "./components/Counter";
 import { FetchData } from "./components/FetchData";
 import { Home } from "./components/Home";
-import Landing  from "./landing/Landing"
+import FrontPage from './pages/FrontPage/FrontPage';
 import  ProductDetail  from "./products/detail/ProductDetail"; 
 import  ProductList  from "./products/ProductList";
 
@@ -27,7 +27,7 @@ import  ProductList  from "./products/ProductList";
 const AppRoutes = [
     {
         index: true,
-        element: <Landing />
+        element: <FrontPage />
     },
     {
         path: '/products',

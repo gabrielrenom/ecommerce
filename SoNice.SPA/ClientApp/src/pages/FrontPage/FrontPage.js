@@ -1,11 +1,28 @@
 import Banner from "./Banner";
-import FeatureProduct from "./FeatureProduct";
-import ScrollToTopOnMount from "../template/ScrollToTopOnMount";
+import NewArrival from "../../components/NewArrival/NewArrival";
+import ScrollToTopOnMount from "../../template/ScrollToTopOnMount";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import CreditCardWidget from "../components/CreditCardWidget/CreditCardWidget";
+import CreditCardWidget from "../../components/CreditCardWidget/CreditCardWidget";
 import { Link } from "react-router-dom";
+import Image from "../../statics/images/nillkin-case.webp"
+import { useEffect } from "react";
+import { getLandingPageProducts} from "../../services/productservice";
+import { useState } from "react";
 
-function Landing() {
+function FrontPage() {
+
+    const [data, setData] = useState([]);
+    
+    useEffect(() => {
+        const fetchData = async () => {
+            var result = await getLandingPageProducts();
+            setData(result);
+        }
+        
+        fetchData();
+    }, []);
+
+   
   return (
     <>
       <ScrollToTopOnMount />
@@ -13,21 +30,23 @@ function Landing() {
           <CreditCardWidget merchantId={"01234567890123456789"} merchantName={"SoNice"} totalPrice={"4"} />
       <div className="d-flex flex-column bg-white py-4">
         <p className="text-center px-5">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua.
+         This is a demo of a shopping cart using React, Redux, and Bootstrap.
         </p>
         <div className="d-flex justify-content-center">
           <Link to="/products" className="btn btn-primary" replace>
-            Browse products
+            Browse our products
           </Link>
         </div>
       </div>
       <h2 className="text-muted text-center mt-4 mb-3">New Arrival</h2>
       <div className="container pb-5 px-lg-5">
         <div className="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4 px-md-5">
-          {Array.from({ length: 6 }, (_, i) => {
-            return <FeatureProduct key={i} />;
-          })}
+            {
+                data.length>0? data.map((item) => {
+                    return <NewArrival key={item.id} price={item.price} image={item.image} title={item.name} id={item.id}/>;
+                }):<>Loading...</>
+            }
+        
         </div>
       </div>
       <div className="d-flex flex-column bg-white py-4">
@@ -48,4 +67,4 @@ function Landing() {
   );
 }
 
-export default Landing;
+export default FrontPage;
