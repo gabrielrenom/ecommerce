@@ -16,6 +16,7 @@ function FrontPage() {
     useEffect(() => {
         const fetchData = async () => {
             var result = await getLandingPageProducts();
+            console.log(result);  
             setData(result);
         }
         

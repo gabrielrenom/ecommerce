@@ -5,7 +5,7 @@ import { Home } from "./components/Home";
 import FrontPage from './pages/FrontPage/FrontPage';
 import  ProductDetail  from "./products/detail/ProductDetail"; 
 import  ProductList  from "./products/ProductList";
-
+import ProductDetailViewPage from './pages/Product/ProductDetailViewPage';
 
 //const AppRoutes = [
 //  {
@@ -37,6 +37,11 @@ const AppRoutes = [
         path: '/products/:slug',
         //requireAuth: true,
         element: <ProductDetail />
+    },
+    {
+        path: '/productdetail/:slug',
+        //requireAuth: true,
+        element: <ProductDetailViewPage />
     },
     ...ApiAuthorzationRoutes
 ];

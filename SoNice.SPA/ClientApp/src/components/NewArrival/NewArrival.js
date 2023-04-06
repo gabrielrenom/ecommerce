@@ -16,7 +16,7 @@ function NewArrival({title, price, image, id}) {
           <h5 className="card-title text-center">{title}</h5>
           <p className="card-text text-center text-muted">£{price}</p>
           <div className="d-grid gap-2">
-            <Link to={`/products/${id}`} className="btn btn-outline-dark" replace>
+            <Link to={`/productdetail/${id}`} className="btn btn-outline-dark" replace>
               Detail
             </Link>
           </div>

@@ -34,6 +34,19 @@ const data = [{
 export const getLandingPageProducts = async () => {
     try {
         let response = await fetch(`productshop`);
+        console.log(response);
+        let data = await response.json();
+        return data;
+    }
+    catch (error) {
+        return -2;
+    }
+}
+
+export const getProductById = async (Id) => {
+    try {
+        let response = await fetch(`productshop/${Id}`);
+        console.log(response);
         let data = await response.json();
         return data;
     }

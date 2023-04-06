@@ -32,5 +32,20 @@ namespace SoNice.Domain.Services
             
             
         }
+
+        public async Task<Product> GetProductById(int id)
+        {
+            try
+            {
+                var product = await _context.Products.Include(x => x.Category).Where(x => x.IsNew == true).FirstOrDefaultAsync();
+                return product;
+            }
+            catch (Exception ex)
+            {
+                return null;
+                throw;
+            }
+
+        }
     }
 }

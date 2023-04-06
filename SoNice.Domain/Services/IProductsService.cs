@@ -10,5 +10,6 @@ namespace SoNice.Domain.Services
     public interface IProductsService
     {
         Task<List<Product>> GetAllProducts(bool isnew = false);
+        Task<Product> GetProductById(int id);
     }
 }
