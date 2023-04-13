@@ -4,7 +4,7 @@ import { FetchData } from "./components/FetchData";
 import { Home } from "./components/Home";
 import FrontPage from './pages/FrontPage/FrontPage';
 import  ProductDetail  from "./products/detail/ProductDetail"; 
-import  ProductList  from "./products/ProductList";
+import  Products  from "./pages/Products/Products";
 import ProductDetailViewPage from './pages/Product/ProductDetailViewPage';
 
 //const AppRoutes = [
@@ -31,7 +31,7 @@ const AppRoutes = [
     },
     {
         path: '/products',
-        element: <ProductList />
+        element: <Products />
     },
     {
         path: '/products/:slug',
